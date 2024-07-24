@@ -1,13 +1,13 @@
 import { useRoutes } from "react-router-dom";
 
-import PostRouter from "features/post/route";
-import PostRouterId from "features/postId/route";
-import CartRouter from "features/cart/route";
 import { Layout } from "app/layout/Layout";
 import { Fallback } from "shared/ui/fallback/Fallback";
 import { HomePage } from "pages/homePage/ui/HomePage";
+import CartRouter from "features/cart/route";
 import WishlistRouter from "features/wishlist/route";
-import commentsRoute from "features/comments/route";
+import GetRouterId from "features/getId/route";
+import GetRouter from "features/get/route";
+import PostRouter from "features/post/route";
 
 export const MyRoutes = () => {
   const myRouter = useRoutes([
@@ -17,10 +17,11 @@ export const MyRoutes = () => {
       errorElement: <Fallback />,
       children: [
         { path: "/", element: <HomePage /> },
-        PostRouter,
-        PostRouterId,
+        GetRouter,
+        GetRouterId,
         CartRouter,
         WishlistRouter,
+        PostRouter,
       ],
     },
   ]);

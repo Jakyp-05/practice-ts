@@ -6,11 +6,11 @@ import "../styles/style.css";
 import { useNavigate } from "react-router-dom";
 import Pagination from "shared/ui/pagination/Pagination";
 
-const PostPage: React.FC = () => {
+const GetPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { posts, error, status } = useAppSelector(
-    (state: RootState) => state.post
+    (state: RootState) => state.get
   );
   const [currentPage, setCurrentPage] = useState<number>(1);
   const postsPerPage = 15;
@@ -59,4 +59,4 @@ const PostPage: React.FC = () => {
   );
 };
 
-export default PostPage;
+export default GetPage;

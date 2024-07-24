@@ -1,41 +1,48 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchPostAsync } from "./action";
-import { Post } from "../type";
+import { deleteAsyncPost, postsAsync } from "./actions";
+import { formState } from "../type";
+import { Posts } from "shared/types/type";
 
-interface PostState {
-  posts: Post[];
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
-}
-
-const initialState: PostState = {
+const initialState: formState = {
   posts: [],
-  status: "idle",
+  loading: false,
   error: null,
 };
 
-const postSlice = createSlice({
-  name: "post",
+const postsSlice = createSlice({
+  name: "posts",
   initialState,
-  reducers: {},
+  reducers: {
+    // setTitle: (state, action: PayloadAction<string>) => {
+    //   state.title = action.payload;
+    // },
+    // setBody: (state, action: PayloadAction<string>) => {
+    //   state.body = action.payload;
+    // },
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchPostAsync.pending, (state) => {
-        state.status = "loading";
+      .addCase(postsAsync.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(postsAsync.fulfilled, (state, action: PayloadAction<Posts>) => {
+        state.loading = false;
+        state.posts.push(action.payload);
+      })
+      .addCase(postsAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to load posts";
       })
       .addCase(
-        fetchPostAsync.fulfilled,
-        (state, action:PayloadAction< Post[]>) => {
-          state.status = "succeeded";
-          state.posts = action.payload;
-          state.error = null;
+        deleteAsyncPost.fulfilled,
+        (state, action: PayloadAction<number>) => {
+          state.posts = state.posts.filter(
+            (post) => post.id !== action.payload
+          );
         }
-      )
-      .addCase(fetchPostAsync.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message ?? "Failed to fetch";
-      });
+      );
   },
 });
 
-export default postSlice.reducer;
+export default postsSlice.reducer;

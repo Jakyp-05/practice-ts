@@ -3,11 +3,12 @@ import storage from "redux-persist/lib/storage";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import persistStore from "redux-persist/es/persistStore";
 import { persistReducer } from "redux-persist";
-import postSlice from "features/post/store/slice";
-import postSliceId from "features/postId/store/slice";
+import getSlice from "features/get/store/slice";
+import getSliceId from "features/getId/store/slice";
 import cartSlice from "features/cart/store/slice";
 import wishlistSlice from "features/wishlist/store/slice";
 import commentSlice from "features/comments/store/slice";
+import PostSlice from "features/post/store/slice";
 
 const persistConfig = {
   key: "root",
@@ -15,11 +16,12 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  post: postSlice,
-  postId: postSliceId,
+  get: getSlice,
+  getId: getSliceId,
   cart: cartSlice,
   wishlist: wishlistSlice,
   comments: commentSlice,
+  posts: PostSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

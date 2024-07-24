@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Post } from "../../post/type";
+import { Post } from "../../get/type";
 import { fetchPostId } from "../api";
 
 export const fetchPostAsyncId = createAsyncThunk<Post, number>(

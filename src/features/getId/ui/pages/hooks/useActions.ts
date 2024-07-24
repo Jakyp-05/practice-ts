@@ -8,7 +8,7 @@ export const useActions = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { post: selectedPost } = useAppSelector(
-    (state: RootState) => state.postId
+    (state: RootState) => state.getId
   );
   const cartItems = useAppSelector((state: RootState) => state.cart.cart);
   const wishItems = useAppSelector(

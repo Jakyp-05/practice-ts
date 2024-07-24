@@ -13,13 +13,13 @@ import {
 } from "../styles/style";
 import { useActions } from "../hooks/useActions";
 
-const PostPageId: React.FC = () => {
+const GetPageId: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const {
     post: selectedPost,
     status: selectedPostStatus,
     error: selectedPostError,
-  } = useAppSelector((state: RootState) => state.postId);
+  } = useAppSelector((state: RootState) => state.getId);
   const dispatch = useAppDispatch();
 
   const {
@@ -68,6 +68,4 @@ const PostPageId: React.FC = () => {
   );
 };
 
-export default PostPageId;
-
-// () =>
+export default GetPageId;

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import PostPageId from "./ui/pages/Post_page_id/PostPageId";
+import PostPageId from "./ui/pages/get_page_id/GetPgaeId";
 import CommentsPage from "features/comments/ui/CommentsPage";
 
-const PostRouterId = {
+const GetRouterId = {
   path: "posts",
   element: <Outlet />,
   children: [
@@ -17,4 +17,4 @@ const PostRouterId = {
   ],
 };
 
-export default PostRouterId;
+export default GetRouterId;

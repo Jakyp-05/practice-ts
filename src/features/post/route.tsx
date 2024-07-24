@@ -1,15 +1,8 @@
-import { Outlet } from "react-router-dom";
-import PostPage from "./ui/pages/post_page/PostPage";
+import Post from "./ui/Post";
 
 const PostRouter = {
-  path: "posts",
-  element: <PostPage />,
-  // children: [
-  //   {
-  //     path: "",
-  //     element: <h4>post page </h4>,
-  //     // element: <PostPage />,
-  //   },
-  // ],
+  path: "post",
+  element: <Post />,
 };
+
 export default PostRouter;

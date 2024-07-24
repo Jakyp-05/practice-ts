@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Post } from "../../post/type";
+import { Post } from "../../get/type";
 import { fetchPostAsyncId } from "./actions";
 
 interface PostState {
@@ -14,7 +14,7 @@ const initialState: PostState = {
   error: null,
 };
 
-const postSlice = createSlice({
+const getSlice = createSlice({
   name: "post",
   initialState,
   reducers: {},
@@ -38,4 +38,4 @@ const postSlice = createSlice({
   },
 });
 
-export default postSlice.reducer;
+export default getSlice.reducer;

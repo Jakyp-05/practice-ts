@@ -1,11 +1,7 @@
-export interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+import { Posts } from "shared/types/type";
 
-
-export interface ApiResponse {
-  posts: Post[];
+export interface formState {
+  posts: Posts[];
+  loading: boolean;
+  error: string | null;
 }

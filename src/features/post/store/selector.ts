@@ -1,4 +1,4 @@
-import { RootState } from "app/store";
+    import { RootState } from "app/store";
 
+    export const selectPosts = (state: RootState) => state;
 
-export const selectPost = (state: RootState) => state
