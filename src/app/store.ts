@@ -3,6 +3,8 @@ import storage from "redux-persist/lib/storage";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import persistStore from "redux-persist/es/persistStore";
 import { persistReducer } from "redux-persist";
+
+// store
 import getSlice from "features/get/store/slice";
 import getSliceId from "features/getId/store/slice";
 import cartSlice from "features/cart/store/slice";
