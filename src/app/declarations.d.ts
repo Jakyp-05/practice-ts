@@ -8,4 +8,4 @@ declare module "redux-persist/es/persistStore" {
     options?: any,
     callback?: () => any
   ): Persistor;
-}
+} 
